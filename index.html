@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Community School</title>
+    <meta name="viewport" content="width=device-width, user-scalable-=no, initial-scale=1.0, maximum-scale=1.0">
+
+       <script type="text/javascript">
+        var rDrag = {
+            o: null,
+            init_Div: function(o) {
+                o.onmousedown = this.start_Div;
+            },
+            start_Div: function(e) {
+                var o;
+                e = rDrag.fixEvent(e);
+                e.preventDefault && e.preventDefault();
+                rDrag.o = o = this;
+                o.x = e.clientX - rDrag.o.offsetLeft;
+                o.y = e.clientY - rDrag.o.offsetTop;
+                document.onmousemove = rDrag.move_Div;
+                document.onmouseup = rDrag.end_Div;
+            },
+            move_Div: function(e) {
+                e = rDrag.fixEvent(e);
+                var oLeft, oTop;
+                oLeft = e.clientX - rDrag.o.x;
+                oTop = e.clientY - rDrag.o.y;
+                rDrag.o.style.left = oLeft + 'px';
+                rDrag.o.style.top = oTop + 'px';
+            },
+            end_Div: function(e) {
+                e = rDrag.fixEvent(e);
+                rDrag.o = document.onmousemove = document.onmouseup = null;
+            },
+            fixEvent: function(e) {
+                if (!e) {
+                    e = window.event;
+                    e.target = e.srcElement;
+                    e.layerX = e.offsetX;
+                    e.layerY = e.offsetY;
+                }
+                return e;
+            }
+        }
+        window.onload = function() {
+            var obj_Div = document.getElementById('div1');
+            rDrag.init_Div(obj_Div);
+        }
+
+    </script>
+   
+    <style>
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        #d1 {
+            width: 1920px;
+            height: 1920px;
+            border: 2px solid #00FFD1;
+        }
+
+
+        div {
+            background-image:
+                url("images/Chapter%201.png");
+        }
+        
+        #div1 {
+            height: 54px;
+            width: 96px;
+            top: 0px;
+            left: 0px;
+            padding: 0px;
+            position: absolute;
+        }
+
+        .myImg {
+            width: 96px;
+            height: 54px;
+        }
+    </style>
+
+    
+
+</head>
+
+<body>
+
+
+    <div id="d1">
+        <canvas id="myCanvas" width="1920" height="1920">
+            <p>Sorry!Something went wrong :p </p>
+        </canvas>
+    </div>
+    <div id="div1">
+        <img class="myImg" alt="" src="images/sleep.gif"> 
+    </div>
+
+
+
+</body></html>
