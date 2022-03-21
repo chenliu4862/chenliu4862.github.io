@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Community School</title>
+    <meta name="viewport" content="width=device-width, user-scalable-=no, initial-scale=1.0, maximum-scale=1.0">
+
+    <style>
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        #d1 {
+            width: 1920px;
+            height: 1920px;
+            border: 2px solid #00FFD1;
+        }
+
+        #draggable {
+            width: 100px;
+            height: 100px;
+            padding: 0.5em;
+            border: 0px solid;
+        }
+        
+        div {
+            background-image:
+                url("images/Chapter%201.png");
+        }
+    </style>
+        <!-- include necessary js libraries -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#draggable").draggable();
+        });
+    </script>
+    
+
+</head>
+
+<body>
+    <div id="draggable">
+        <img src="images/sleep.gif" width="100" alt="">
+    </div>
+
+    <div id="d1">
+        <canvas id="myCanvas" width="1920" height="1920">
+            <p>您的系统不支持此程序!</p>
+        </canvas>
+    </div>
+
+
+
+
+</body></html>
